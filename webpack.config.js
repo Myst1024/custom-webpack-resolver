@@ -1,3 +1,4 @@
+var CustomResolverPlugin = require("./plugins/custom-resolver-plugin");
 const mode = process.env.NODE_ENV || "development";
 
 module.exports = {
@@ -21,7 +22,9 @@ module.exports = {
       },
     ],
   },
-
+  resolve: {
+    plugins: [new CustomResolverPlugin()],
+  },
   devtool: "source-map",
 
   devServer: {
